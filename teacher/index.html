@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons for UI elements -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-white dark:bg-slate-800 shadow-md border-b border-slate-200 dark:border-slate-700 sticky top-0 z-10">
+        <div class="container mx-auto px-4 sm:px-6 md:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-blue-600 p-2 rounded-lg">
+                        <i data-lucide="book-marked" class="text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold text-slate-800 dark:text-white">STEMUp Portal</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" id="nav-dashboard-link" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition-colors">Dashboard</a>
+                </div>
+                <div class="flex items-center">
+                    <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/E2E8F0/4A5568?text=T" alt="Teacher Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="app-container" class="container mx-auto p-4 sm:p-6 md:p-8">
+        <!-- TEACHER DASHBOARD VIEW -->
+        <div id="dashboard-view">
+            <header class="mb-8">
+                <h1 class="text-3xl font-bold text-slate-800 dark:text-white">Teacher Dashboard</h1>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">Overview of student performance and engagement.</p>
+            </header>
+            <div id="student-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </div>
+
+        <!-- STUDENT DETAIL VIEW (Initially Hidden) -->
+        <div id="detail-view" class="hidden">
+            <header id="detail-header" class="flex items-center gap-4 mb-8">
+                <button id="back-button" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 p-2 rounded-full transition-colors">
+                    <i data-lucide="chevron-left" class="text-slate-600 dark:text-slate-300"></i>
+                </button>
+            </header>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-700">
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4">Subject Mastery</h2>
+                    <div class="h-[300px]">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-700">
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4">Key Stats</h2>
+                    <div id="key-stats" class="space-y-4"></div>
+                </div>
+            </div>
+            <div class="mt-8 bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border border-slate-200 dark:border-slate-700">
+                <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">AI Assistant</h2>
+                <div class="flex flex-wrap gap-4 mb-4">
+                    <button id="generate-feedback-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 transition-colors">
+                        ✨ Generate Feedback
+                    </button>
+                    <button id="suggest-plan-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 transition-colors">
+                        ✨ Suggest Learning Plan
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2 text-slate-700 dark:text-slate-300">Personalized Feedback</h3>
+                        <div id="feedback-container" class="min-h-[100px] p-4 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300">
+                           Click a button to generate content.
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2 text-slate-700 dark:text-slate-300">Suggested Plan</h3>
+                         <div id="plan-container" class="min-h-[100px] p-4 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300">
+                           Click a button to generate content.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">Game Performance Details</h2>
+                <div id="game-details" class="space-y-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Link to your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
